@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+  }
+  
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -1;
+  }
+  
+  .container2 {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 30%;
+    margin: 50px auto;
+  }
+  
+  .titlepoem {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .author {
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  
+  .poem-body {
+    font-size: 18px;
+    line-height: 1.6;
+    white-space: pre-line;
+  }
+  
+  .audio-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.555);
+    border-radius: 10px;
+  }
+  
+  button {
+    background: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  button:hover {
+    background: gray;
+  }
+  

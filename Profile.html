@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume</title>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <audio id="backgroundAudio" loop>
+    <source src="audio/What's Up Danger (with Black Caviar) - Blackway.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <button id="playAudio">Play Music</button> <!-- Button to start playback -->
+  
+  <script>
+    document.getElementById("playAudio").addEventListener("click", function () {
+      let audio = document.getElementById("backgroundAudio");
+      audio.play().catch(error => console.log("Autoplay failed:", error));
+      this.style.display = "none"; // Hide button after starting audio
+    });
+  </script>
+  
+  <video autoplay muted loop id="myVideo">
+    <source src="video/livewallpaper.mp4" type="video/mp4">
+  </video>
+  <div class="container">
+    <div class="profile">
+      <div class="profile_container">
+        <div class="profile_profileImg">
+          <img src="./images/profileImage.png" alt="Leander Haro">
+        </div>
+        <div>
+          <h1 class="profile_name">
+            <span class="profile_name_firstName">Leander Grant</span>
+            <span class="profile_name_lastName">Haro</span>
+          </h1>
+          <p class="profile_title">About Me</p>
+          <p class="description profile_description">
+            Hi, I’m a Leader. A college student from the University of Perpetual Help who loves diving into novels, and exploring random interests. I started with architecture, but now I’m on a journey in data science. Whether it’s a new challenge or a random spark of inspiration, I’m always ready to take it on! 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="group-1">
+      <div class="skills">
+        <h3 class="title">Expertise</h3>
+        <ul class="skills_list description">
+          <li>HTML</li>
+          <li>Python</li>
+          <li>HTML CSS</li>
+          <li>CAD</li>
+        </ul>
+      </div>
+      <div class="interest">
+        <h3 class="title">Interest</h3>
+        <div class="interest_items">
+          <div class="interest_item">
+            <i data-feather="music"></i>
+            <span>Music</span>
+          </div>
+          <div class="interest_item">
+            <i data-feather="book"></i>
+            <span>Books</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <hr>
+    <div class="group-2">
+      <div class="contact">
+        <h3 class="title">Contact</h3>
+        <div class="contact_info">
+          <p class="description">
+            Cavite, Philipines
+          </p>
+          <p class="description">
+            0956 078 1974
+          </p>
+          <p class="description">
+            haroleander@gmail.com
+          </p>
+        </div>
+      </div>
+      <div class="social">
+        <h3 class="title">Socials</h3>
+        <div class="social_items">
+          <a href="#" target="_blank" class="social_item">
+            <i data-feather="linkedin"></i>
+            <span>/leander-haro</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    feather.replace()
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poem</title>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+  <audio id="backgroundAudio" loop>
+    <source src="audio/The road not taken.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <div class="audio-controls">
+    <button id="playAudio">Play</button>
+    <button id="pauseAudio">Pause</button>
+    <input type="range" id="volumeControl" min="0" max="1" step="0.05" value="1">
+  </div>
+  
+  <script>
+    let audio = document.getElementById("backgroundAudio");
+    document.getElementById("playAudio").addEventListener("click", function () {
+      audio.play().catch(error => console.log("Autoplay failed:", error));
+    });
+    document.getElementById("pauseAudio").addEventListener("click", function () {
+      audio.pause();
+    });
+    document.getElementById("volumeControl").addEventListener("input", function () {
+      audio.volume = this.value;
+    });
+  </script>
+  
+  <video autoplay muted loop id="myVideo">
+    <source src="video/mylivewallpapers-com-Evening-Swamp-Samurai-4K.mp4" type="video/mp4">
+  </video>
+  
+  <div class="container2">
+      <h3>The Road Not Taken</h3>
+      <h3>By Robert Frost</h3>
+      <h3>
+        <br><br>
+        Two roads diverged in a yellow wood,<br>
+        And sorry I could not travel both<br>
+        And be one traveler, long I stood<br>
+        And looked down one as far as I could<br>
+        To where it bent in the undergrowth;<br><br>
+    
+        Then took the other, as just as fair,<br>
+        And having perhaps the better claim,<br>
+        Because it was grassy and wanted wear;<br>
+        Though as for that the passing there<br>
+        Had worn them really about the same,<br><br>
+    
+        And both that morning equally lay<br>
+        In leaves no step had trodden black.<br>
+        Oh, I kept the first for another day!<br>
+        Yet knowing how way leads on to way,<br>
+        I doubted if I should ever come back.<br><br>
+    
+        I shall be telling this with a sigh<br>
+        Somewhere ages and ages hence:<br>
+        Two roads diverged in a wood, and I—<br>
+        I took the one less traveled by,<br>
+        And that has made all the difference.<br>
+      </h3>
+  </div>
+  
+  <script>
+    feather.replace()
+  </script>
+</body>
+
+</html>
