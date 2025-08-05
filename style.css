@@ -18,7 +18,7 @@ body, html {
     height: 100%;
     overflow: hidden; /* Ensures video doesn't cause scrollbars */
     z-index: -2; /* Behind all content */
-    background-color: #ffffff; /* Dark fallback if video fails */
+    background-color: #000000; /* Dark fallback if video fails */
 }
 
 .video-background-placeholder p {
