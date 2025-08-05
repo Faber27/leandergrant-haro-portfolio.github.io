@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Works</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Styles for the works page */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+      gap: 1.5rem;
+      margin-top: 1rem;
+      padding: 1rem;
+    }
+    .work-item {
+      text-align: center;
+      border-radius: 8px;
+      padding: 1rem;
+      background-color: #f9f9f9; /* Light background for each item */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .work-item:hover {
+        transform: translateY(-5px);
+    }
+    .work-item a {
+        text-decoration: none;
+        color: inherit;
+    }
+    .work-image-placeholder {
+      width: 100%;
+      height: 150px; /* Adjust height as needed */
+      background-color: #e0e0e0; /* Placeholder background color */
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+      font-size: 0.9em;
+      color: #777;
+    }
+    .work-item h3 {
+      margin: 0;
+      font-size: 1.1em;
+      color: #333;
+    }
+    p {
+    color: #ffffff; /* Change this to any color you like */
+    }
+  </style>
+</head>
+<body>
+  <div class="video-background-placeholder">
+    <video autoplay muted loop playsinline>
+      <source src="Assets/Videos/videoplayback.webm" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p style="text-align:center; padding-top: 20%; color: #ccc;"></p>
+  </div>
+
+  <div class="container">
+    <header class="main-header">
+        <div class="profile-section">
+            <!-- <img src="assets/profileImage.png" alt="Profile Picture" class="profile-pic"> -->
+            <h1 class="site-name">Leander Grant L. Haro</h1>
+        </div>
+        <nav class="nav-desktop">
+            <a href="index.html" class="btn">Home</a>
+            <a href="about.html" class="btn">About Me</a>
+            <a href="photos.html" class="btn">Photos</a>
+            <a href="works.html" class="btn active">Works</a>
+            <a href="contacts.html" class="btn">Contact</a>
+        </nav>
+        <div class="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    <nav class="nav-mobile">
+        <a href="index.html" class="btn">Home</a>
+        <a href="about.html" class="btn">About Me</a>
+        <a href="photos.html" class="btn">Photos</a>
+        <a href="works.html" class="btn active">Works</a>
+        <a href="contacts.html" class="btn">Contact</a>
+    </nav>
+
+    <main class="content-page">
+      <h1>My Works</h1>
+      <p>Here are some of my projects. Click on an item to view the work.</p>
+      <div class="works-grid">
+        <div class="work-item">
+          <a href="works/001/Poem.html">
+            <div class="work-image-placeholder">
+              <img src="assets/workphotos/poem.png" alt="Profile Image">
+            </div>
+            <h3>Poem</h3>
+          </a>
+        </div>
+        <div class="work-item">
+          <a href="works/001/Profile.html">
+            <div class="work-image-placeholder">
+              <img src="assets/workphotos/profile.jpg" alt="Profile Image">
+            </div>
+            <h3>Profile</h3>
+          </a>
+        </div>
+        <div class="work-item">
+          <a href="works/Bouncing Ball.html">
+            <div class="work-image-placeholder">
+              <img src="assets/workphotos/bouncingball.jpg" alt="Bouncing Ball">
+            </div>
+            <h3>Bouncing Ball</h3>
+          </a>
+        </div>
+        <div class="work-item">
+          <a href="works/Change Color.html">
+            <div class="work-image-placeholder">
+              <img src="assets/workphotos/changebackground.jpg" alt="Change Color">
+            </div>
+            <h3>Change Color</h3>
+          </a>
+        </div>
+        <div class="work-item">
+          <a href="works/002/Index.html">
+            <div class="work-image-placeholder">
+              <img src="assets/workphotos/grade.jpg" alt="Grade Report">
+            </div>
+            <h3>Student Grade Report</h3>
+          </a>
+        </div>
+        <!-- Add more work items here as needed by copying the structure above -->
+        <!-- Example for a new item:
+        <div class="work-item">
+          <a href="#link-to-your-work">
+            <div class="work-image-placeholder">Image Placeholder</div>
+            <h3>Project Title</h3>
+          </a>
+        </div>
+        -->
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.querySelector(".hamburger-menu").addEventListener("click", function() {
+      document.querySelector(".nav-mobile").classList.toggle("active");
+    });
+  </script>
+</body>
+</html>

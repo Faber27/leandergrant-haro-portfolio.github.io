@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photos</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Video Background Styles */
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    .video-background-placeholder {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: transparent;
+    }
+
+    .video-background-placeholder video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+
+    /* Gallery Styles */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust minmax for better spacing */
+        gap: 1rem; /* Adjust the gap between items */
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+
+    .photo-item {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for photo items */
+        width: 100%; /* Ensures the photo item takes the full width of the grid */
+        height: 100%; /* Ensures the photo item maintains its proportion */
+        cursor: pointer;
+    }
+
+    .photo-item img {
+        width: 100%;
+        height: 100%; /* Make sure the image fills the container */
+        display: block; /* Removes any space below the image */
+        border-radius: 10px;
+        object-fit: cover; /* Ensures the image covers the container proportionally */
+    }
+
+    .photo-date {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 4px 8px;
+        font-size: 0.8em;
+        border-radius: 4px;
+        z-index: 10;
+    }
+
+    /* Lightbox Styles */
+    .lightbox {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        margin: auto;
+        border-radius: 10px;
+    }
+
+    .close-lightbox {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="video-background-placeholder">
+    <video autoplay muted loop playsinline>
+      <source src="Assets/Videos/videoplayback.webm" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p style="text-align:center; padding-top: 20%; color: #ccc;"></p>
+  </div>
+
+  <div class="container">
+    <header class="main-header">
+        <div class="profile-section">
+            <h1 class="site-name">Leander Grant L. Haro</h1>
+        </div>
+        <nav class="nav-desktop">
+            <a href="index.html" class="btn">Home</a>
+            <a href="about.html" class="btn">About Me</a>
+            <a href="photos.html" class="btn active">Photos</a>
+            <a href="works.html" class="btn">Works</a>
+            <a href="contacts.html" class="btn">Contact</a>
+        </nav>
+        <div class="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    <nav class="nav-mobile">
+        <a href="index.html" class="btn">Home</a>
+        <a href="about.html" class="btn">About Me</a>
+        <a href="photos.html" class="btn active">Photos</a>
+        <a href="works.html" class="btn">Works</a>
+        <a href="contacts.html" class="btn">Contact</a>
+    </nav>
+
+    <main class="content-page">
+      <h1>My Photos</h1>
+      <div class="gallery" id="gallery">
+        <!-- Images will be inserted here by JavaScript -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-image" src="" alt="Full-size image">
+  </div>
+
+  <script>
+    document.querySelector(".hamburger-menu").addEventListener("click", function() {
+      document.querySelector(".nav-mobile").classList.toggle("active");
+    });
+
+    const photosData = [
+      { src: 'assets/photos/photo1.jpg', alt: 'Photo 1', date: 'YYYY-MM-DD' },
+      { src: 'assets/photos/photo2.jpg', alt: 'Photo 2', date: 'YYYY-MM-DD' },
+      { src: 'assets/photos/photo3.jpg', alt: 'Photo 3', date: 'YYYY-MM-DD' },
+      { src: 'assets/photos/photo4.jpg', alt: 'Photo 4', date: 'YYYY-MM-DD' },
+      { src: 'assets/photos/photo5.jpg', alt: 'Photo 5', date: 'YYYY-MM-DD' },
+      { src: 'assets/photos/photo6.jpg', alt: 'Photo 6', date: 'YYYY-MM-DD' }
+    ];
+
+    const gallery = document.getElementById('gallery');
+
+    photosData.forEach(photo => {
+      const photoItem = document.createElement('div');
+      photoItem.classList.add('photo-item');
+      const img = document.createElement('img');
+      img.src = photo.src;
+      img.alt = photo.alt;
+      
+      const dateOverlay = document.createElement('div');
+      dateOverlay.classList.add('photo-date');
+      dateOverlay.textContent = photo.date;
+
+      photoItem.appendChild(img);
+      photoItem.appendChild(dateOverlay);
+      gallery.appendChild(photoItem);
+
+      // Add click event to open lightbox
+      photoItem.addEventListener('click', () => openLightbox(photo.src));
+    });
+
+    // Open Lightbox
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      lightboxImage.src = src;
+      lightbox.style.display = 'flex';
+    }
+
+    // Close Lightbox
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

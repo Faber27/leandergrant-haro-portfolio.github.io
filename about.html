@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Styles for the about page */
+    .about-content {
+      padding: 1rem;
+      line-height: 1.8;
+    }
+    .about-section {
+      margin-bottom: 2rem;
+      background-color: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .about-section h2 {
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    .about-section p,
+    .about-section ul {
+      margin-bottom: 1rem;
+      color: #000000;
+    }
+    .about-section ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .placeholder-text {
+        color: #777;
+        font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="video-background-placeholder">
+    <video autoplay muted loop playsinline>
+      <source src="Assets/Videos/videoplayback.webm" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p style="text-align:center; padding-top: 20%; color: #ccc;"></p>
+  </div>
+
+  <div class="container">
+    <header class="main-header">
+        <div class="profile-section">
+            <!-- <img src="assets/profileImage.png" alt="Profile Picture" class="profile-pic"> -->
+            <h1 class="site-name">Leander Grant L. Haro</h1>
+        </div>
+        <nav class="nav-desktop">
+            <a href="index.html" class="btn">Home</a>
+            <a href="about.html" class="btn active">About Me</a>
+            <a href="photos.html" class="btn">Photos</a>
+            <a href="works.html" class="btn">Works</a>
+            <a href="contacts.html" class="btn">Contact</a>
+        </nav>
+        <div class="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    <nav class="nav-mobile">
+        <a href="index.html" class="btn">Home</a>
+        <a href="about.html" class="btn active">About Me</a>
+        <a href="photos.html" class="btn">Photos</a>
+        <a href="works.html" class="btn">Works</a>
+        <a href="contacts.html" class="btn">Contact</a>
+    </nav>
+
+    <main class="content-page about-content">
+      <h1>About Me</h1>
+      
+      <div class="about-section">
+        <h2>Introduction</h2>
+        <p class="placeholder-text">Hi, I’m Leander. A college student from the University of Perpetual Help. I started with architecture, but now I’m a student in data science. I love to learn new things, especially in the field of technology. I’m also a fan of reading novels.</p>
+      </div>
+      
+      <div class="about-section">
+        <h2>Skills & Expertise</h2>
+        <p class="placeholder-text">List of my key skills and areas of expertise.</p>
+        <ul class="placeholder-text">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Python</li>
+            <li>CAD</li>
+            <li>Data Analysis</li>
+        </ul>
+      </div>
+
+      <div class="about-section">
+        <h2>Education</h2>
+        <p class="placeholder-text">Currently a Data Science student at the University of Perpetual Help. Previously studied Architecture.</p>
+      </div>
+
+      <div class="about-section">
+        <h2>Interests & Hobbies</h2>
+        <p class="placeholder-text">Beyond technology and data, I am an avid reader of novels and enjoy playing computer games.</p>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    document.querySelector(".hamburger-menu").addEventListener("click", function() {
+      document.querySelector(".nav-mobile").classList.toggle("active");
+    });
+  </script>
+</body>
+</html>
